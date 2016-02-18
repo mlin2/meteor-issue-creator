@@ -1,0 +1,77 @@
+<head>
+    <title>meteor-issue-creator</title>
+</head>
+
+<body>
+<h1>Welcome to meteor-issue-creator!</h1>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Create new Issue
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form class="issue-form">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Create an Issue</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="modal-label" for="title">Title</label>
+                        <input name="title" type="text"  class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label class="modal-label" for="body">Body</label>
+                        <textarea name="body" class="form-control" rows="5" id="body"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<ul class="list-group">
+
+    {{#each issuesInDatabase}}
+
+    {{> issue}}
+
+    {{/each}}
+
+</ul>
+</body>
+
+<template name="issue">
+
+    <li class="list-group-item">{{title}} {{body}}</li>
+
+</template>
+
+
+<!--
+<table class="table table-striped">
+
+    {{#each issuesInDatabase}}
+
+    {{> issue}}
+
+    {{/each}}
+
+</table>
+</body>
+
+<template name="issue">
+
+    <tr class="list-group-item">{{title}}</tr>
+
+</template>-->
